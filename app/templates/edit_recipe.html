@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1>Edit Recipe</h1>
+{% endblock %}
+
+{% block body %}
+<form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    
+    {# Display errors if any #}
+    {% for field, errors in form.errors.items() %}
+    {% for error in errors %}
+    <div class="alert alert-danger">{{ error }}</div>
+    {% endfor %}
+    {% endfor %}
+    
+    <div class="form-group">
+        {{ form.name.label(class="formLabel") }}
+        {{ form.name(class="form-control") }}
+    </div>
+    
+    <div class="form-group">
+        {{ form.group.label(class="formLabel") }}
+        {{ form.group(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.image.label(class="formLabel") }}
+        {{ form.image(class="form-control-file") }}
+    </div>
+    
+    <div class="form-group">
+        {{ form.description.label(class="formLabel") }}
+        {{ form.description(class="form-control", rows=4) }}
+    </div>
+    
+    <div class="form-group">
+        {{ form.ingredients.label(class="formLabel") }}
+        {{ form.ingredients(class="form-control", rows=4) }}
+    </div>
+    
+    <div class="form-group">
+        {{ form.steps.label(class="formLabel") }}
+        {{ form.steps(class="form-control", rows=4) }}
+    </div>
+    
+    <div class="form-group">
+        {{ form.notes.label(class="formLabel") }}
+        {{ form.notes(class="form-control", rows=4) }}
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+{% endblock %}

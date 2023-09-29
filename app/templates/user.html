@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block head %}
+{{super()}}
+{% endblock %}
+
+{% block body %}
+{{super()}}
+<table>
+    <tr valign="top">
+        <td><img src="{{ user.avatar(128) }}"></td>
+        <td>
+            <h1>User: {{ user.username }}</h1>
+            {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+            {% if user.last_seen %}<p>Last seen on: {{ user.last_seen }}</p>{% endif %}
+            {% if user == current_user %}
+            <p><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
+            {% endif %}
+        </td>
+    </tr>
+</table>
+<hr>
+{% for post in posts %}
+{% include '_post.html' %}
+{% endfor %}
+
+
+
+<header>
+    <h2 style='text-align:center'>Recipe - {add name} </h2><br />
+</header>
+
+<section id="main">
+    <div class="inner">
+
+        <!-- One -->
+        <section id="one" class="wrapper style1">
+
+            <div class="image fit flush">
+                <!-- <img src="images/pic01.jpg" alt="" /> -->
+            </div>
+            <header class="special">
+                <h2>Ingredients</h2>
+                <!-- <p>vehicula urna sed justo bibendum</p> -->
+            </header>
+            <div class="content">
+                <ol>
+                    <li>hujykvbcge</li>
+                    <li>hujykvbcge</li>
+                    <li>hujykvbcge</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="three" class="wrapper">
+            <div class="spotlight">
+                <div class="image flush"><img src="images/pic06.jpg" alt="" /></div>
+                <div class="inner">
+                    <h3>Time</h3>
+                    <h4>Preparation</h4>
+                    <h4>Cooking</h4>
+                    <h3>Ratings</h3>
+                    <h4>Difficulty</h4>
+                    <h4>Taste</h4>
+                    <!-- <h3>Attempts</h3>
+                    <h4>Passed</h4>
+                    <h4>Failed</h4> -->
+                </div>
+            </div>
+            <div class="spotlight alt">
+                <div class="image flush"><img src="images/pic07.jpg" alt="" /></div>
+                <div class="inner">
+                    <h3>Instructions</h3>
+                    <ol>
+                        <li>hujykvbcge</li>
+                        <li>hujykvbcge</li>
+                        <li>hujykvbcge</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="spotlight">
+                <div class="image flush"><img src="images/pic08.jpg" alt="" /></div>
+                <div class="inner">
+                    <h3>Notes</h3>
+                    <ol>
+                        <li>hujykvbcge</li>
+                        <li>hujykvbcge</li>
+                        <li>hujykvbcge</li>
+                    </ol>
+                </div>
+        </section>
+
+    </div>
+</section>
+
+{% endblock %}

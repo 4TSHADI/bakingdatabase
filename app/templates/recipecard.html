@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block head %}
+{{super()}}
+<title>Recipe card</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/bootstrap/css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/recipecard.css')}}">
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&amp;display=swap">
+
+{% endblock %}
+{% block body %}
+{{super()}}
+<header>
+    <h2 style='text-align:center'>{{ recipe.name }}</h2><br />
+</header>
+
+<h1 class="text-center text-white d-none d-lg-block site-heading"></h1>
+<section class="page-section">
+    <div class="container">
+        <div class="product-item">
+            <div class="d-flex product-item-title">
+                <div class="d-flex me-auto bg-faded p-5 rounded"
+                    style="padding-right: 0px;margin-bottom: 70px;margin-right: 49px;padding-left: 78px;margin-left: -2px;">
+                    <h2 class="section-heading mb-0"><span class="section-heading-lower">RECIPE NAME</span></h2>
+                </div>
+            </div><img class="img-fluid d-flex mx-auto product-item-img mb-3 mb-lg-0 rounded"
+                src="{{ recipe.image}}"
+                style="padding-top: 33px;margin-top: 17px;padding-bottom: 33px;padding-right: 14px;margin-left: 8px;padding-left: 17px;">
+            <div class="bg-faded p-5 rounded"
+                style="margin-top: 28px;margin-left: 76px;margin-right: 75px;margin-bottom: 118px;padding-top: 74px;">
+                <p class="mb-0">Description {{ recipe.description }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="page-section">
+    <div class="container">
+        <div class="product-item">
+            <div class="d-flex product-item-title"></div>
+            <div class="bg-faded p-5 rounded" style="margin-bottom: 56px;margin-left: 76px;margin-right: 75px;">
+                <p class="mb-0">stuffs</p>
+            </div>
+            <div class="bg-faded p-5 rounded" style="margin-top: 70px;margin-left: 76px;margin-right: 75px;">
+                <p class="mb-0">Ingredients {{ recipe.ingredients }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="page-section">
+    <div class="container">
+        <div class="product-item">
+            <div class="bg-faded p-5 rounded" style="margin-bottom: 77px;margin-left: 76px;margin-right: 75px;">
+                <p class="mb-0">Steps {{ recipe.steps }}</p>
+            </div>
+            <div class="bg-faded p-5 rounded" style="margin-left: 76px;margin-right: 75px;">
+                <p class="mb-0">Notes {{ recipe.notes }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<a href="{{ url_for('edit_recipe', name=recipe.name, recipe=recipe) }}" class="button style3 fit" >Edit Recipe</a>
+
+{% block footer %}
+{{super()}}
+
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/current-day.js"></script>
+
+
+{% endblock %}
+{% endblock %}

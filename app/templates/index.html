@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block head %}
+{{super()}}
+{% endblock %}
+{% block body %}
+{{super()}}
+
+<section id="banner" data-video="images/banner.png">
+    <div class="inner">
+        <header>
+            <h1>Tshadi's Baking Database</h1>
+            <p>A complete database of tried and perfected recipies. From byte sized treats to macro doughs and batters. Join in on this culinary adventure as we discover extraordinary flavors</p>
+        </header>
+        <a href="#main" class="more">Learn More</a>
+    </div>
+</section>
+
+<!-- Main -->
+<div id="main">
+    <div class="inner">
+
+    <!-- Boxes -->
+        <div class="thumbnails">
+
+            <div class="box">
+                <div class="image fit"><img src="images/pic03.jpg" alt="" /></div>
+                <div class="inner">
+                    <h3>Group name</h3>
+                    <p>description</p>
+                    <a href="{{ url_for('groups') }}" class="button style3 fit" data-poptrox="youtube,800x400">Recipe</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image fit"><img src="images/pic03.jpg" alt="" /></div>
+                <div class="inner">
+                    <h3>Group name</h3>
+                    <p>description</p>
+                    <a href="{{ url_for('groups') }}" class="button style3 fit" data-poptrox="youtube,800x400">Recipe</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

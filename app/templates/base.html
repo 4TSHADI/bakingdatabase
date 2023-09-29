@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+{% block head %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/static/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+</head>
+
+{% endblock %}
+
+<body>
+    {% block body %}
+    <hr>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {% block form %}
+    {% endblock %}
+    {% endblock %}
+
+</body>
+<!-- Footer -->
+{% block footer %}
+
+<footer id="footer">
+    <div class="container">
+        <ul class="icons">
+            <li><a href="https://www.tiktok.com/@amantle_bogacu" class="fab fa-tiktok" class="icon"></a></li>
+            <li><a href="https://www.instagram.com/rxrely.tshadi/" class="icon fa-instagram"><span
+                        class="label">Instagram</span></a></li>
+        </ul>
+    </div>
+    <p class="text-muted mb-0">Copyright © 2023 Brand</p>
+</footer>
+{% endblock %}
+
+</html>
